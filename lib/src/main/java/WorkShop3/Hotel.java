@@ -4,18 +4,9 @@ public class Hotel {
 	// Class Based variables
 	String hotelName;
 	int rating;
-	double RegularCustomerCost;
 
-	// default contractor
+	//  contractor
 	public Hotel() {
-
-	}
-
-	// parameterized constructor
-	public Hotel(String hotelName, int rating, double RegularCustomerCost) {
-		this.hotelName = hotelName;
-		this.rating = rating;
-		this.RegularCustomerCost = RegularCustomerCost;
 
 	}
 
@@ -36,18 +27,4 @@ public class Hotel {
 		this.rating = rating;
 	}
 
-	public double getRegularCustomerCost() {
-		return RegularCustomerCost;
-	}
-
-	public void setRegularCustomerCost(double RegularCustomerCost) {
-		this.RegularCustomerCost = RegularCustomerCost;
-	}
-
-	// to string method to print the output as single line.
-	@Override
-	public String toString() {
-		return "Hotels [hotelName=" + hotelName + ", rating=" + rating + ", RegularCustomerPrice=" + RegularCustomerCost
-				+ "]";
-	}
 }

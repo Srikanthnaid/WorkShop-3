@@ -5,18 +5,29 @@ import org.junit.jupiter.api.Test;
 
 class HotelReservationTest {
 
-	@Test
-	public void givenHotelDetails_WhenValuesEnteredAreCorrect_ShoulReturnTrue() {
+	@Test//true test-case
+	public void givenHotelDetails_WhenValuesEnteredAreCorrect_ShoulReturnTrue() throws InvalidHotelDetailsException {
 		// create a object of HotelReservation service class.
 		HotelReservation hotelReservationService = new HotelReservation();
 		// create a boolean variable to assign
-		boolean isValidHotel_1 = hotelReservationService.addHotel("Lakewood", 3, 110);
-		// assertTrue method is check program is working based on required condition
-		Assertions.assertTrue(isValidHotel_1);
-		boolean isValidHotel_2 = hotelReservationService.addHotel("Bridgewood", 4, 16);
-		Assertions.assertTrue(isValidHotel_2);
-		boolean isValidHotel_3 = hotelReservationService.addHotel("Ridgewood", 5, 220);
-		Assertions.assertTrue(isValidHotel_3);
+		try {
+		boolean isValidHotel_1 = hotelReservationService.addHotel("Lakewood", 3);
+		Assertions.assertTrue(isValidHotel_1);//true
+		}catch (InvalidHotelDetailsException e){//handle exception
+            System.out.println("Invalid hotel details" + e);
+        }
+	}
+	@Test//false test-case
+	public void givenHotelDetails_WhenValuesEnteredAreCorrect_ShoulReturnfalse() throws InvalidHotelDetailsException {
+		// create a object of HotelReservation service class.
+		HotelReservation hotelReservationService = new HotelReservation();
+		// create a boolean variable to assign
+		try {
+		boolean isValidHotel_1 = hotelReservationService.addHotel("Haritha", 5);
+		Assertions.assertFalse(isValidHotel_1);
+		}catch (InvalidHotelDetailsException e){//handle exception
+            System.out.println("Invalid hotel details" + e);
+        }
 	}
 
 }
